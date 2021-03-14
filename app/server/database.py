@@ -1,7 +1,6 @@
 import motor.motor_asyncio
 from bson.objectid import ObjectId
 from datetime import datetime
-# this is my monogodb uri you can use youre own mongodb uri if you want to see the data in mongodb atlas yourself.
 MONGO_DETAILS = "mongodb+srv://jaxene5847:test@cluster0.42bhf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 database = client.audioserver
@@ -10,7 +9,6 @@ podcast_collection = database.get_collection("podcast_collection")
 audiobook_collection = database.get_collection("audiobook_collection")
 now = datetime.now()
 
-# helpers
 
 
 def song_helper(song) -> dict:
@@ -123,7 +121,6 @@ async def delete_audiobook(id: str):
 
 
 async def update_song(id: str, data: dict):
-    # Return false if an empty request body is sent.
     if len(data) < 1:
         return False
     song = await song_collection.find_one({"_id": ObjectId(id)})
@@ -137,7 +134,6 @@ async def update_song(id: str, data: dict):
 
 
 async def update_podcast(id: str, data: dict):
-    # Return false if an empty request body is sent.
     if len(data) < 1:
         return False
     podcast = await podcast_collection.find_one({"_id": ObjectId(id)})
@@ -151,7 +147,6 @@ async def update_podcast(id: str, data: dict):
 
 
 async def update_audiobook(id: str, data: dict):
-    # Return false if an empty request body is sent.
     if len(data) < 1:
         return False
     audiobook = await audiobook_collection.find_one({"_id": ObjectId(id)})
