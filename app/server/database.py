@@ -2,7 +2,7 @@ import motor.motor_asyncio
 from bson.objectid import ObjectId
 from datetime import datetime
 # this is my monogodb uri you can use youre own mongodb uri if you want to see the data in mongodb atlas yourself.
-MONGO_DETAILS = "mongodb+srv://ninja:ninja@cluster0.p8v6b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGO_DETAILS = "mongodb+srv://jaxene5847:test@cluster0.42bhf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
 database = client.audioserver
 song_collection = database.get_collection("song_collection")
